@@ -17,6 +17,13 @@ const app = async (yargsObject) => {
       //READ
       const film = new Film(yargsObject.title, yargsObject.actor)
       console.table(await film.read(collection))
+    } else if (yargsObject.update) {
+      //UPDATE
+      const film = new Film(yargsObject.title, yargsObject.actor)
+      console.log(await film.update(collection))
+      console.table(await film.read(collection))
+    } else if (yargsObject.delete) {
+      //DELETE
     } else {
       console.log("Incorrect command");
     }

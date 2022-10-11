@@ -1,3 +1,5 @@
+const { ObjectId } = require("mongodb");
+
 class Film {
   constructor(title, actor = "Unspecified") {
     this.title = title;
@@ -10,10 +12,29 @@ class Film {
   async create(collection) {
     await collection.insertOne(this);
   }
-  
+
   //READ
   async read(collection) {
     return await collection.find({}).toArray();
+  }
+
+  //UPDATE
+  async update(collection) {
+    return await collection.updateOne(
+      {
+        _id: ObjectId("6345483aea562bde52fed61a"),
+      },
+      {
+        $set: {
+          title: "Escape From New York",
+        },
+      }
+    );
+  }
+
+  //DELETE
+  async delete(collection) {
+
   }
 }
 
