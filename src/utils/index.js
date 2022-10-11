@@ -19,15 +19,13 @@ class Film {
   }
 
   //UPDATE
-  async update(collection) {
-    return await collection.updateOne(
+  async update(collection, key, filter) {
+    await collection.updateOne(
       {
-        _id: ObjectId("6345483aea562bde52fed61a"),
+        [key]: filter,
       },
       {
-        $set: {
-          title: "Escape From New York",
-        },
+        $set: (this)
       }
     );
   }
