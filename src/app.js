@@ -24,6 +24,9 @@ const app = async (yargsObject) => {
       console.table(await film.read(collection))
     } else if (yargsObject.delete) {
       //DELETE
+      const film = new Film(yargsObject.title, yargsObject.actor)
+      console.log(await film.delete(collection))
+      console.table(await film.read(collection))
     } else {
       console.log("Incorrect command");
     }
