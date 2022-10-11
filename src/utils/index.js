@@ -34,7 +34,7 @@ class Film {
 
   //DELETE
   async delete(collection) {
-    return await collection.deleteOne({actor: "Kurt Russell"})
+    return await collection.deleteOne({})
   }
 }
 
