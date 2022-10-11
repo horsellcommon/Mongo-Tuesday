@@ -12,7 +12,6 @@ const app = async (yargsObject) => {
       const film = new Film(yargsObject.title, yargsObject.actor)
       await film.create(collection)
       console.log(await film.read(collection))
-      // console.log("Added to collection")
     } else if (yargsObject.read) {
       //READ
       const film = new Film(yargsObject.title, yargsObject.actor)
@@ -27,6 +26,11 @@ const app = async (yargsObject) => {
       const film = new Film(yargsObject.title, yargsObject.actor)
       console.log(await film.delete(collection))
       console.table(await film.read(collection))
+    } else if (yargsObject.createMore) {
+      //Add multiple
+      const film = new Film(yargsObject.title, yargsObject.actor)
+      await film.createMore(collection)
+      console.log(await film.read(collection))
     } else {
       console.log("Incorrect command");
     }

@@ -34,7 +34,13 @@ class Film {
 
   //DELETE
   async delete(collection) {
-    return await collection.deleteOne({})
+    return await collection.deleteOne({});
+  }
+
+  //Extra
+  //Insert many
+  async createMore(collection) {
+    await collection.insertMany([this]);
   }
 }
 
