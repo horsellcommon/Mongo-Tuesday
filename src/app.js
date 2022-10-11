@@ -11,9 +11,12 @@ const app = async (yargsObject) => {
       //CREATE
       const film = new Film(yargsObject.title, yargsObject.actor)
       await film.create(collection)
-      console.log("Added to collection")
+      console.log(await film.read(collection))
+      // console.log("Added to collection")
     } else if (yargsObject.read) {
       //READ
+      const film = new Film(yargsObject.title, yargsObject.actor)
+      console.table(await film.read(collection))
     } else {
       console.log("Incorrect command");
     }
