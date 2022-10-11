@@ -1,15 +1,19 @@
 const yargs = require("yargs");
 // requiring client/connection from connection file
 const { client, connection } = require("./db/connection.js");
+const Film = require("./utils")
 
 const app = async (yargsObject) => {
   const collection = await connection();
 
   try {
     if (yargsObject.create) {
-      //Add
+      //CREATE
+      const film = new Film(yargsObject.title, yargsObject.actor)
+      await film.create(collection)
+      console.log("Added to collection")
     } else if (yargsObject.read) {
-      //Read
+      //READ
     } else {
       console.log("Incorrect command");
     }
